@@ -13,29 +13,28 @@ numbers = {
 }
 
 def day1() :
-    input = open('Others/Advent_of_Code/day1/inputTest.txt', 'r')
+    input = open('./Others/AdventOfcode/day1/input.txt', 'r')
     summList = []
-    for lines in input:
+    for line in input:
         tempList = []
-        tempStringList = []
-        for string in lines:
+        tempStringList = ''
+        for string in line:
             isEndOfString = False
             if (string.isdecimal()):
                 tempList.append(string)
                 isEndOfString = True
-                tempStringList = []
+                tempStringList = ''
             if (isEndOfString == False):
-                tempStringList.append(string)
+                tempStringList +=string 
                 result = checkString(tempStringList)
                 if (result[0] == True) :
                     tempList.append(findValue(result[1]))
-                    tempStringList = []
+                    tempStringList = tempStringList[len(tempStringList)-1:]
 
         first_num = tempList[0]
         last_num = tempList[len(tempList) - 1]
         num = first_num + last_num
         summList.append(num)
-    print(summList)
     total = 0
     for number in summList:
         total += int(number)

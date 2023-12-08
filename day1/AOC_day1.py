@@ -13,7 +13,7 @@ numbers = {
 }
 
 def day1() :
-    input = open('./Others/AdventOfcode/day1/input.txt', 'r')
+    input = open('./input.txt', 'r')
     summList = []
     for line in input:
         tempList = []
